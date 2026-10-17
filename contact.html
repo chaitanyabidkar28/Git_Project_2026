@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Chaitanya Bidkar, Java Developer and MCA Data Science student.">
+    <meta name="theme-color" content="#0b0b12">
+    <title>Contact | Chaitanya Bidkar</title>
+    <style>
+        :root {
+            --bg: #0b0b12;
+            --surface: rgba(22, 22, 36, .84);
+            --text: #f5f4ff;
+            --muted: #aaa8c2;
+            --purple: #a78bfa;
+            --purple-bright: #8b5cf6;
+            --border: rgba(167, 139, 250, .22);
+            --max-width: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--text);
+            background: radial-gradient(ellipse at 12% 4%, rgba(124, 58, 237, .18), transparent 34%),
+                radial-gradient(ellipse at 90% 48%, rgba(91, 33, 182, .13), transparent 30%), var(--bg);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        .container {
+            width: min(var(--max-width), calc(100% - 40px));
+            margin-inline: auto;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(11, 11, 18, .8);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            font-size: 1.12rem;
+            font-weight: 850;
+            letter-spacing: -.04em;
+        }
+
+        .brand span {
+            color: var(--purple);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            color: var(--muted);
+            font-size: .93rem;
+        }
+
+        .nav-links a {
+            transition: color .2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a[aria-current="page"] {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 9px 15px;
+            color: var(--text) !important;
+            background: rgba(139, 92, 246, .1);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            padding: 8px 11px;
+            cursor: pointer;
+        }
+
+        .hero {
+            padding: 82px 0 42px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 7px 13px;
+            color: #d4c7ff;
+            background: rgba(139, 92, 246, .1);
+            font-size: .82rem;
+            font-weight: 700;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--purple);
+            box-shadow: 0 0 13px var(--purple-bright);
+        }
+
+        h1 {
+            margin: 20px 0 16px;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            line-height: 1.05;
+            letter-spacing: -.065em;
+        }
+
+        .gradient {
+            background: linear-gradient(100deg, #c4b5fd, #a78bfa 55%, #f0abfc);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+
+        .hero-copy {
+            max-width: 640px;
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        .contact-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .highlight {
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 999px;
+            padding: 7px 11px;
+            color: #d9d4ee;
+            background: rgba(255, 255, 255, .025);
+            font-size: .82rem;
+        }
+
+        .panel {
+            border: 1px solid var(--border);
+            border-radius: 23px;
+            padding: 28px;
+            background: linear-gradient(145deg, rgba(31, 26, 52, .93), rgba(17, 17, 28, .88));
+            box-shadow: 0 20px 70px rgba(0, 0, 0, .24), 0 0 45px rgba(139, 92, 246, .12);
+        }
+
+        .panel h2 {
+            margin: 0 0 6px;
+            font-size: 1.35rem;
+            letter-spacing: -.03em;
+        }
+
+        .panel-intro {
+            margin: 0 0 22px;
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        .contact-methods {
+            display: grid;
+            gap: 13px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, .07);
+            background: rgba(255, 255, 255, .025);
+            border-radius: 15px;
+            transition: border-color .2s ease, transform .2s ease;
+        }
+
+        .contact-method:hover {
+            border-color: var(--border);
+            transform: translateY(-2px);
+        }
+
+        .method-icon {
+            flex: 0 0 42px;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: #d4c7ff;
+            background: rgba(139, 92, 246, .12);
+            font-weight: 850;
+        }
+
+        .method-text {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .method-text small {
+            display: block;
+            color: var(--muted);
+            font-size: .78rem;
+        }
+
+        .method-text strong {
+            display: block;
+            font-size: .91rem;
+            overflow-wrap: anywhere;
+        }
+
+        .method-arrow {
+            color: var(--purple);
+            font-size: 1.1rem;
+        }
+
+        section {
+            padding: 40px 0;
+        }
+
+        .section-heading {
+            max-width: 720px;
+            margin-bottom: 24px;
+        }
+
+        .kicker {
+            color: var(--purple);
+            text-transform: uppercase;
+            letter-spacing: .16em;
+            font-size: .78rem;
+            font-weight: 850;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            letter-spacing: -.05em;
+            line-height: 1.15;
+            margin: 8px 0 10px;
+        }
+
+        .section-description {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .form-layout {
+            display: grid;
+            grid-template-columns: 1fr .7fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .form-card,
+        .side-card {
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 21px;
+            padding: 27px;
+            background: var(--surface);
+        }
+
+        .form-card h2,
+        .side-card h3 {
+            margin: 0 0 8px;
+            letter-spacing: -.025em;
+        }
+
+        .form-card>p,
+        .side-card p {
+            margin: 0 0 20px;
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            color: #e4e0f7;
+            font-size: .87rem;
+            font-weight: 650;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            color: var(--text);
+            background: rgba(255, 255, 255, .035);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 12px;
+            padding: 12px 13px;
+            outline: none;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #77758e;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--purple);
+            box-shadow: 0 0 0 3px rgba(167, 139, 250, .12);
+        }
+
+        textarea {
+            min-height: 145px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-top: 19px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 45px;
+            padding: 11px 17px;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            font-weight: 750;
+            cursor: pointer;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+            color: #fff;
+            box-shadow: 0 8px 26px rgba(109, 40, 217, .25);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, .025);
+            border-color: rgba(255, 255, 255, .13);
+        }
+
+        .form-note {
+            color: var(--muted);
+            font-size: .8rem;
+            margin: 13px 0 0;
+        }
+
+        .form-status {
+            display: none;
+            margin-top: 15px;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: #e4dcff;
+            background: rgba(139, 92, 246, .1);
+            font-size: .9rem;
+        }
+
+        .side-card+.side-card {
+            margin-top: 15px;
+        }
+
+        .side-icon {
+            width: 43px;
+            height: 43px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            color: #d4c7ff;
+            background: rgba(139, 92, 246, .12);
+            font-weight: 850;
+            margin-bottom: 14px;
+        }
+
+        .quick-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .quick-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .quick-item span {
+            color: var(--purple);
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #c4f1df;
+            font-size: .82rem;
+            border: 1px solid rgba(110, 231, 183, .18);
+            background: rgba(16, 185, 129, .07);
+            border-radius: 999px;
+            padding: 6px 10px;
+        }
+
+        .availability .dot {
+            background: #6ee7b7;
+            box-shadow: 0 0 12px rgba(110, 231, 183, .55);
+        }
+
+        .cta {
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: clamp(24px, 4vw, 38px);
+            background: radial-gradient(circle at 100% 0%, rgba(139, 92, 246, .19), transparent 38%), var(--surface);
+        }
+
+        .cta h2 {
+            margin: 7px 0 8px;
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
+            letter-spacing: -.045em;
+        }
+
+        .cta p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 255, 255, .07);
+            color: var(--muted);
+            font-size: .88rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .footer-inner strong {
+            color: var(--text);
+        }
+
+        .back-top {
+            color: #c4b5fd;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(17px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @media (max-width: 850px) {
+
+            .hero-grid,
+            .form-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .panel {
+                max-width: 650px;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .container {
+                width: min(var(--max-width), calc(100% - 30px));
+            }
+
+            .nav {
+                min-height: 68px;
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 15px;
+                right: 15px;
+                padding: 18px;
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                background: rgba(17, 17, 28, .98);
+                flex-direction: column;
+                align-items: stretch;
+                gap: 14px;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 5px 3px;
+            }
+
+            .nav-cta {
+                text-align: center;
+            }
+
+            .hero {
+                padding: 52px 0 28px;
+            }
+
+            h1 {
+                font-size: clamp(2.65rem, 13vw, 4rem);
+            }
+
+            section {
+                padding: 32px 0;
+            }
+
+            .panel,
+            .form-card,
+            .side-card {
+                padding: 21px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .field.full {
+                grid-column: auto;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+    <header class="site-header">
+        <nav class="nav container" aria-label="Main navigation">
+            <a class="brand" href="index.html" aria-label="Chaitanya Bidkar home">CB<span>.</span></a>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false"
+                aria-controls="navLinks"><span aria-hidden="true">☰</span> Menu</button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="#contact" aria-current="page">Contact</a>
+                <a class="nav-cta" href="#message">Send a message ↗</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="reveal">
+                    <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Contact · Let's connect</div>
+                    <h1>Have an idea?<br><span class="gradient">Let's talk.</span></h1>
+                    <p class="hero-copy">I'm Chaitanya Bidkar, a Java Developer and MCA Data Science student. I'm always
+                        interested in connecting with fellow developers, discussing project ideas, and learning about
+                        opportunities to grow.</p>
+                    <div class="contact-highlights">
+                        <span class="highlight">Software development</span>
+                        <span class="highlight">Learning &amp; collaboration</span>
+                        <span class="highlight">Project discussions</span>
+                    </div>
+                </div>
+                <aside class="panel reveal">
+                    <h2>Contact details</h2>
+                    <p class="panel-intro">Replace the example links below with your real contact information before
+                        publishing.</p>
+                    <div class="contact-methods">
+                        <a class="contact-method" href="mailto:your.email@example.com">
+                            <span class="method-icon" aria-hidden="true">@</span>
+                            <span
+                                class="method-text"><small>Email</small><strong>chaitanybidkar70@gmail.com</strong></span>
+                            <span class="method-arrow" aria-hidden="true">↗</span>
+                        </a>
+                        <a class="contact-method" href="https://www.linkedin.com/" target="_blank"
+                            rel="noopener noreferrer">
+                            <span class="method-icon" aria-hidden="true">in</span>
+                            <span class="method-text"><small>LinkedIn</small><strong>Add your LinkedIn
+                                    profile</strong></span>
+                            <span class="method-arrow" aria-hidden="true">↗</span>
+                        </a>
+                        <a class="contact-method" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                            <span class="method-icon" aria-hidden="true">GH</span>
+                            <span class="method-text"><small>GitHub</small><strong>Add your GitHub
+                                    profile</strong></span>
+                            <span class="method-arrow" aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="kicker">Get in touch</span>
+                    <h2 class="section-title">Send me a message</h2>
+                    <p class="section-description">Share a little context so I can understand what you'd like to
+                        discuss.</p>
+                </div>
+                <div class="form-layout">
+                    <div class="form-card reveal" id="message">
+                        <h2>Write a message</h2>
+                        <p>This form opens your email app with the message prepared. It does not send or store anything
+                            on a server.</p>
+                        <form id="contactForm">
+                            <div class="form-grid">
+                                <div class="field">
+                                    <label for="name">Your name</label>
+                                    <input id="name" name="name" type="text" placeholder="Enter your name"
+                                        autocomplete="name" required>
+                                </div>
+                                <div class="field">
+                                    <label for="email">Your email</label>
+                                    <input id="email" name="email" type="email" placeholder="you@example.com"
+                                        autocomplete="email" required>
+                                </div>
+                                <div class="field full">
+                                    <label for="subject">Subject</label>
+                                    <select id="subject" name="subject" required>
+                                        <option value="" selected disabled>Choose a subject</option>
+                                        <option>Project collaboration</option>
+                                        <option>Job or internship opportunity</option>
+                                        <option>Technical discussion</option>
+                                        <option>General message</option>
+                                    </select>
+                                </div>
+                                <div class="field full">
+                                    <label for="messageText">Your message</label>
+                                    <textarea id="messageText" name="message"
+                                        placeholder="Hi Chaitanya, I'd like to discuss..." required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-primary" type="submit">Prepare email <span
+                                        aria-hidden="true">↗</span></button>
+                                <button class="btn btn-secondary" type="reset">Clear form</button>
+                            </div>
+                            <p class="form-note">Your email app will open so you can review and send the message
+                                yourself.</p>
+                            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+                        </form>
+                    </div>
+
+                    <aside>
+                        <div class="side-card reveal">
+                            <div class="side-icon" aria-hidden="true">✦</div>
+                            <h3>What can we talk about?</h3>
+                            <p>I'm happy to connect around topics that help me learn, build, and grow as a developer.
+                            </p>
+                            <div class="quick-list">
+                                <div class="quick-item"><span>↗</span><span>Software development and Java
+                                        projects</span></div>
+                                <div class="quick-item"><span>↗</span><span>Learning resources and technical
+                                        ideas</span></div>
+                                <div class="quick-item"><span>↗</span><span>Internships, collaboration, and
+                                        opportunities</span></div>
+                            </div>
+                        </div>
+                        <div class="side-card reveal">
+                            <span class="availability"><span class="dot" aria-hidden="true"></span> Open to meaningful
+                                connections</span>
+                            <h3 style="margin-top:15px">A note from me</h3>
+                            <p>I'm working toward becoming a professional software developer. Every conversation is a
+                                chance to exchange ideas, learn from others, and discover new possibilities.</p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="cta reveal">
+                    <span class="kicker">Thanks for stopping by</span>
+                    <h2>Let's make something useful.</h2>
+                    <p>Have a project idea or want to connect? I'd be glad to hear from you.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <div>© <span id="year"></span> <strong>Chaitanya Bidkar</strong>. Built with care.</div>
+            <a class="back-top" href="#top">Back to top ↑</a>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+        menuToggle.addEventListener("click", () => {
+            const open = navLinks.classList.toggle("open");
+            menuToggle.setAttribute("aria-expanded", String(open));
+            menuToggle.querySelector("span").textContent = open ? "✕" : "☰";
+        });
+        navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+            navLinks.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.querySelector("span").textContent = "☰";
+        }));
+
+        // Contact form: prepare an email in the visitor's default mail application.
+        const contactForm = document.getElementById("contactForm");
+        const formStatus = document.getElementById("formStatus");
+        const recipient = "your.email@example.com"; // Replace with your actual email address.
+
+        contactForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            if (!contactForm.reportValidity()) return;
+
+            const formData = new FormData(contactForm);
+            const senderName = String(formData.get("name")).trim();
+            const senderEmail = String(formData.get("email")).trim();
+            const subject = String(formData.get("subject")).trim();
+            const message = String(formData.get("message")).trim();
+
+            const emailSubject = encodeURIComponent(`[Portfolio] ${subject}`);
+            const emailBody = encodeURIComponent(
+                `Hi Chaitanya,\n\n${message}\n\nRegards,\n${senderName}\n${senderEmail}`
+            );
+            formStatus.style.display = "block";
+            formStatus.textContent = "Opening your email app. Please review the message and send it from there.";
+            window.location.href = `mailto:${recipient}?subject=${emailSubject}&body=${emailBody}`;
+        });
+
+        contactForm.addEventListener("reset", () => {
+            formStatus.style.display = "none";
+            formStatus.textContent = "";
+        });
+
+        // Reveal content on scroll, respecting reduced-motion preferences.
+        const revealItems = document.querySelectorAll(".reveal");
+        if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            const observer = new IntersectionObserver((entries, currentObserver) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        currentObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealItems.forEach(item => observer.observe(item));
+        } else {
+            revealItems.forEach(item => item.classList.add("visible"));
+        }
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
